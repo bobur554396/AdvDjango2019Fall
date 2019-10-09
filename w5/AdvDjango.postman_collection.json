@@ -1,0 +1,1400 @@
+{
+	"info": {
+		"_postman_id": "ca7d0f89-1057-49b3-80e4-1f53e2175416",
+		"name": "AdvDjango",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "w2",
+			"item": [
+				{
+					"name": "Auth",
+					"item": [
+						{
+							"name": "User List",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "JWT {{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{BASE_URL}}/api/users/",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"api",
+										"users",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Login",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "ac84f00b-d026-49ee-92ce-558a40ae7372",
+										"exec": [
+											"var jsonData = JSON.parse(responseBody);",
+											"postman.setEnvironmentVariable(\"token\", jsonData.token);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"username\": \"admin\",\n\t\"password\": \"asdasdasd\"\n}"
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/api/login/",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"api",
+										"login",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Register",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "ac84f00b-d026-49ee-92ce-558a40ae7372",
+										"exec": [
+											"var jsonData = JSON.parse(responseBody);",
+											"postman.setEnvironmentVariable(\"token\", jsonData.token);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"username\": \"user2\",\n\t\"password\": \"asdasdasd\"\n}"
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/api/register/",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"api",
+										"register",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Logout",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Token {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/api/logout/",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"api",
+										"logout",
+										""
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				}
+			]
+		},
+		{
+			"name": "w3",
+			"item": [
+				{
+					"name": "Core",
+					"item": [
+						{
+							"name": "Projects List",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "JWT {{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{BASE_URL}}/core/projects/",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"core",
+										"projects",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Projects My List",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "JWT {{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{BASE_URL}}/core/projects/my/",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"core",
+										"projects",
+										"my",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Projects Tasks",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "JWT {{token}}"
+									}
+								],
+								"url": {
+									"raw": "{{BASE_URL}}/core/projects/2/tasks/",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"core",
+										"projects",
+										"2",
+										"tasks",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Projects Create",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n        \"name\": \"project 3\",\n        \"desc\": \"qwe\",\n        \"creator_id\": 1\n    }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/core/projects/",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"core",
+										"projects",
+										""
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Auth",
+					"item": [
+						{
+							"name": "User List",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "JWT {{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{BASE_URL}}/api/users/",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"api",
+										"users",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Current User",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "JWT {{token}}"
+									}
+								],
+								"url": {
+									"raw": "{{BASE_URL}}/api/users/me/",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"api",
+										"users",
+										"me",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Login",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "ac84f00b-d026-49ee-92ce-558a40ae7372",
+										"exec": [
+											"var jsonData = JSON.parse(responseBody);",
+											"postman.setEnvironmentVariable(\"token\", jsonData.token);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"username\": \"admin\",\n\t\"password\": \"asdasdasd\"\n}"
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/api/login/",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"api",
+										"login",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Register",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "ac84f00b-d026-49ee-92ce-558a40ae7372",
+										"exec": [
+											"var jsonData = JSON.parse(responseBody);",
+											"postman.setEnvironmentVariable(\"token\", jsonData.token);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"username\": \"user2\",\n\t\"password\": \"asdasdasd\"\n}"
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/api/register/",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"api",
+										"register",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Logout",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Token {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/api/logout/",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"api",
+										"logout",
+										""
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "w5_1",
+			"item": [
+				{
+					"name": "Core",
+					"item": [
+						{
+							"name": "Project",
+							"item": [
+								{
+									"name": "Projects List",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "JWT {{token}}",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{BASE_URL}}/core/projects/",
+											"host": [
+												"{{BASE_URL}}"
+											],
+											"path": [
+												"core",
+												"projects",
+												""
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Projects My List",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "JWT {{token}}",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{BASE_URL}}/core/projects/my/",
+											"host": [
+												"{{BASE_URL}}"
+											],
+											"path": [
+												"core",
+												"projects",
+												"my",
+												""
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Projects Tasks",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"type": "text",
+												"value": "JWT {{token}}"
+											}
+										],
+										"url": {
+											"raw": "{{BASE_URL}}/core/projects/2/tasks/",
+											"host": [
+												"{{BASE_URL}}"
+											],
+											"path": [
+												"core",
+												"projects",
+												"2",
+												"tasks",
+												""
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Projects Create",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"project 3\",\n    \"desc\": \"qwe\",\n    \"creator_id\": 1\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{BASE_URL}}/core/projects/",
+											"host": [
+												"{{BASE_URL}}"
+											],
+											"path": [
+												"core",
+												"projects",
+												""
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"protocolProfileBehavior": {},
+							"_postman_isSubFolder": true
+						},
+						{
+							"name": "Task",
+							"item": [
+								{
+									"name": "Task Show",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"type": "text",
+												"value": "JWT {{token}}"
+											}
+										],
+										"url": {
+											"raw": "{{BASE_URL}}/core/tasks/4/",
+											"host": [
+												"{{BASE_URL}}"
+											],
+											"path": [
+												"core",
+												"tasks",
+												"4",
+												""
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Task Create",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Authorization",
+												"value": "JWT {{token}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"task 5\",\n    \"status\": 2,\n    \"description\": \"asd\",\n    \"priority\": 2,\n    \"project_id\": 2\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{BASE_URL}}/core/tasks/",
+											"host": [
+												"{{BASE_URL}}"
+											],
+											"path": [
+												"core",
+												"tasks",
+												""
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Task Update",
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											},
+											{
+												"key": "Authorization",
+												"type": "text",
+												"value": "JWT {{token}}"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n\t\"name\": \"task 2 changed\",\n    \"status\": 1,\n    \"priority\": 2,\n    \"description\": \"qwe\",\n    \"project_id\": 2\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{BASE_URL}}/core/tasks/5/",
+											"host": [
+												"{{BASE_URL}}"
+											],
+											"path": [
+												"core",
+												"tasks",
+												"5",
+												""
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Task Delete",
+									"request": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											},
+											{
+												"key": "Authorization",
+												"type": "text",
+												"value": "JWT {{token}}"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{BASE_URL}}/core/tasks/5/",
+											"host": [
+												"{{BASE_URL}}"
+											],
+											"path": [
+												"core",
+												"tasks",
+												"5",
+												""
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"protocolProfileBehavior": {},
+							"_postman_isSubFolder": true
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Auth",
+					"item": [
+						{
+							"name": "User List",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "JWT {{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{BASE_URL}}/api/users/",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"api",
+										"users",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Current User",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "JWT {{token}}"
+									}
+								],
+								"url": {
+									"raw": "{{BASE_URL}}/api/users/me/",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"api",
+										"users",
+										"me",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Login",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "ac84f00b-d026-49ee-92ce-558a40ae7372",
+										"exec": [
+											"var jsonData = JSON.parse(responseBody);",
+											"postman.setEnvironmentVariable(\"token\", jsonData.token);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"username\": \"admin\",\n\t\"password\": \"asdasdasd\"\n}"
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/api/login/",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"api",
+										"login",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Register",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "ac84f00b-d026-49ee-92ce-558a40ae7372",
+										"exec": [
+											"var jsonData = JSON.parse(responseBody);",
+											"postman.setEnvironmentVariable(\"token\", jsonData.token);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"username\": \"user33\",\n\t\"password\": \"asdasdasd\",\n\t\"profile\": {\n\t\t\"bio\": \"test bio\",\n\t\t\"address\": \"Tole bi 59\"\n\t}\n}"
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/api/register/",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"api",
+										"register",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Logout",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Token {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/api/logout/",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"api",
+										"logout",
+										""
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "w5",
+			"item": [
+				{
+					"name": "Core",
+					"item": [
+						{
+							"name": "Task",
+							"item": [
+								{
+									"name": "Task create",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											},
+											{
+												"key": "Authorization",
+												"value": "JWT {{token}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"task 6\",\n    \"status\": 1,\n    \"project_id\": 2\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{BASE_URL}}/core/tasks/",
+											"host": [
+												"{{BASE_URL}}"
+											],
+											"path": [
+												"core",
+												"tasks",
+												""
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Task update",
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											},
+											{
+												"key": "Authorization",
+												"value": "JWT {{token}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n        \"name\": \"task 2 changed\",\n        \"status\": 2,\n        \"project_id\": 2\n    }",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{BASE_URL}}/core/tasks/6/",
+											"host": [
+												"{{BASE_URL}}"
+											],
+											"path": [
+												"core",
+												"tasks",
+												"6",
+												""
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Task Set Executor",
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											},
+											{
+												"key": "Authorization",
+												"type": "text",
+												"value": "JWT {{token}}"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n\t\"executor_id\": 6\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{BASE_URL}}/core/tasks/6/set_executor/",
+											"host": [
+												"{{BASE_URL}}"
+											],
+											"path": [
+												"core",
+												"tasks",
+												"6",
+												"set_executor",
+												""
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Task Show",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											},
+											{
+												"key": "Authorization",
+												"type": "text",
+												"value": "JWT {{token}}"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{BASE_URL}}/core/tasks/6/",
+											"host": [
+												"{{BASE_URL}}"
+											],
+											"path": [
+												"core",
+												"tasks",
+												"6",
+												""
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"protocolProfileBehavior": {},
+							"_postman_isSubFolder": true
+						},
+						{
+							"name": "Project",
+							"item": [
+								{
+									"name": "Projects List",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "JWT {{token}}",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{BASE_URL}}/core/projects/",
+											"host": [
+												"{{BASE_URL}}"
+											],
+											"path": [
+												"core",
+												"projects",
+												""
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Projects My List",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "JWT {{token}}",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{BASE_URL}}/core/projects/my/",
+											"host": [
+												"{{BASE_URL}}"
+											],
+											"path": [
+												"core",
+												"projects",
+												"my",
+												""
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Projects Tasks",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"type": "text",
+												"value": "JWT {{token}}"
+											}
+										],
+										"url": {
+											"raw": "{{BASE_URL}}/core/projects/2/tasks/",
+											"host": [
+												"{{BASE_URL}}"
+											],
+											"path": [
+												"core",
+												"projects",
+												"2",
+												"tasks",
+												""
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Projects Create",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n        \"name\": \"project 3\",\n        \"desc\": \"qwe\",\n        \"creator_id\": 1\n    }",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{BASE_URL}}/core/projects/",
+											"host": [
+												"{{BASE_URL}}"
+											],
+											"path": [
+												"core",
+												"projects",
+												""
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"protocolProfileBehavior": {},
+							"_postman_isSubFolder": true
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Auth",
+					"item": [
+						{
+							"name": "User List",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "JWT {{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{BASE_URL}}/api/users/",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"api",
+										"users",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Current User",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "JWT {{token}}"
+									}
+								],
+								"url": {
+									"raw": "{{BASE_URL}}/api/users/me/",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"api",
+										"users",
+										"me",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Login",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "ac84f00b-d026-49ee-92ce-558a40ae7372",
+										"exec": [
+											"var jsonData = JSON.parse(responseBody);",
+											"postman.setEnvironmentVariable(\"token\", jsonData.token);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"username\": \"admin\",\n\t\"password\": \"asdasdasd\"\n}"
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/api/login/",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"api",
+										"login",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Register",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "ac84f00b-d026-49ee-92ce-558a40ae7372",
+										"exec": [
+											"var jsonData = JSON.parse(responseBody);",
+											"postman.setEnvironmentVariable(\"token\", jsonData.token);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"username\": \"user2\",\n\t\"password\": \"asdasdasd\",\n\t\"profile\": {\n\t\t\"bio\": \"text for bio\",\n\t\t\"address\": \"tole be 59\"\n\t}\n}"
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/api/register/",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"api",
+										"register",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Logout",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Token {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/api/logout/",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"api",
+										"logout",
+										""
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	]
+}
